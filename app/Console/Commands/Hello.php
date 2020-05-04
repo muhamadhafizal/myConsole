@@ -11,7 +11,7 @@ class Hello extends Command
      *
      * @var string
      */
-    protected $signature = 'Hello';
+    protected $signature = 'Hello {name=Hafizal} {--L|lastname=hussin}';
 
     /**
      * The console command description.
@@ -37,6 +37,18 @@ class Hello extends Command
      */
     public function handle()
     {
-        //
+        // $name = $this->argument('name');
+        // // $lastname = $this->argument('age');
+        // $lastname = $this->option('lastname');
+
+        // $this->info($name . ' ' . $lastname );
+
+        $confirm = $this->confirm('are you sure want to delete');
+
+        if($confirm){
+            $this->info('success');
+        } else {
+            $this->info('failed');
+        }
     }
 }
